@@ -63,7 +63,7 @@ RUN set -eux \
    && apk update \
    # 更新系统并更新系统软件
    && apk upgrade && apk upgrade \
-   && apk add -U --update --virtual .$BUILD_DEPS
+   && apk add -U --update --virtual .$BUILD_DEPS \
    # 更新时区
    && ln -sf /usr/share/zoneinfo/${TZ} /etc/localtime \
    # 更新时间
@@ -81,9 +81,9 @@ WORKDIR /base
 # 安装subconverter
 RUN set -eux \
     && wget --no-check-certificate -P /base https://github.com/tindy2013/subconverter/releases/latest/download/subconverter_linux64.tar.gz -O /base/subconverter_linux64.tar.gz \
-	&& tar xzf subconverter_linux64.tar.gz \
-	&& rm -rf subconverter_linux64.tar.gz \
-	&& apk del .$BUILD_DEPS
+    && tar xzf subconverter_linux64.tar.gz \
+    && rm -rf subconverter_linux64.tar.gz \
+    && apk del .$BUILD_DEPS
 	
 
 # 容器信号处理
