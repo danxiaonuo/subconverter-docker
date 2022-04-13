@@ -71,7 +71,7 @@ RUN set -eux && \
    sed -i -e "s/bin\/ash/bin\/zsh/" /etc/passwd && \
    sed -i -e 's/mouse=/mouse-=/g' /usr/share/vim/vim*/defaults.vim && \
    /bin/zsh
-   && echo ${TZ} > /etc/timezone
+   
 # ##############################################################################
 
 # 工作目录
